@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="nautilusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="configuracion_productos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="precio_venta" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="bitacora_fecha" Type="datetime" Nullable="false" />
+          <Property Name="bitacora_usuario" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="producto_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="empresas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="nit" Type="nvarchar" MaxLength="30" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="celular" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="nombre_ceo" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="num_doc_ceo" Type="nvarchar" MaxLength="15" />
+          <Property Name="skype" Type="nvarchar" MaxLength="100" />
+          <Property Name="email_ceo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="site" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="movimientos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="tipo_movimiento" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="bitacora_fecha" Type="datetime" Nullable="false" />
+          <Property Name="bitacora_usuario" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="producto_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="producto_historicos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="producto_Id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="detalle" Type="nvarchar" MaxLength="300" />
+          <Property Name="observacion" Type="nvarchar" MaxLength="300" />
+          <Property Name="codigo" Type="nvarchar" MaxLength="10" />
+          <Property Name="precio_unitario" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="bitacora_fecha" Type="datetime" Nullable="false" />
+          <Property Name="bitacora_usuario" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="tipo_unidad" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="detalle" Type="nvarchar" MaxLength="300" />
+          <Property Name="observacion" Type="nvarchar" MaxLength="300" />
+          <Property Name="codigo" Type="nvarchar" MaxLength="10" />
+          <Property Name="precio_unitario" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="bitacora_fecha" Type="datetime" Nullable="false" />
+          <Property Name="bitacora_usuario" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="tipo_unidad" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="saldo_productos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad" Type="bigint" Nullable="false" />
+          <Property Name="producto_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="contrasenia" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="fecha_desde" Type="datetime" Nullable="false" />
+          <Property Name="fecha_hasta" Type="datetime" Nullable="false" />
+          <Property Name="es_activo" Type="bit" Nullable="false" />
+          <Property Name="empresa_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_empresausuario">
+          <End Role="empresas" Type="Self.empresas" Multiplicity="1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="empresa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productoconfiguracion_producto">
+          <End Role="productos" Type="Self.productos" Multiplicity="1" />
+          <End Role="configuracion_productos" Type="Self.configuracion_productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="configuracion_productos">
+              <PropertyRef Name="producto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productomovimiento">
+          <End Role="productos" Type="Self.productos" Multiplicity="1" />
+          <End Role="movimientos" Type="Self.movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="movimientos">
+              <PropertyRef Name="producto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productosaldo_producto">
+          <End Role="productos" Type="Self.productos" Multiplicity="1" />
+          <End Role="saldo_productos" Type="Self.saldo_productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="saldo_productos">
+              <PropertyRef Name="producto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="nautilusModelStoreContainer">
+          <EntitySet Name="configuracion_productos" EntityType="Self.configuracion_productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="empresas" EntityType="Self.empresas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="movimientos" EntityType="Self.movimientos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="producto_historicos" EntityType="Self.producto_historicos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productos" EntityType="Self.productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="saldo_productos" EntityType="Self.saldo_productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_empresausuario" Association="Self.FK_empresausuario">
+            <End Role="empresas" EntitySet="empresas" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productoconfiguracion_producto" Association="Self.FK_productoconfiguracion_producto">
+            <End Role="productos" EntitySet="productos" />
+            <End Role="configuracion_productos" EntitySet="configuracion_productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productomovimiento" Association="Self.FK_productomovimiento">
+            <End Role="productos" EntitySet="productos" />
+            <End Role="movimientos" EntitySet="movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productosaldo_producto" Association="Self.FK_productosaldo_producto">
+            <End Role="productos" EntitySet="productos" />
+            <End Role="saldo_productos" EntitySet="saldo_productos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="nautilusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="configuracion_productos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="precio_venta" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="bitacora_fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="bitacora_usuario" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="producto_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="producto" Relationship="Self.FK_productoconfiguracion_producto" FromRole="configuracion_productos" ToRole="productos" />
+        </EntityType>
+        <EntityType Name="empresa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nit" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="celular" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nombre_ceo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="num_doc_ceo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="skype" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="email_ceo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="site" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="usuarios" Relationship="nautilusModel.FK_empresausuario" FromRole="empresa" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="movimiento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="tipo_movimiento" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="bitacora_fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="bitacora_usuario" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="producto_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="producto" Relationship="Self.FK_productomovimiento" FromRole="movimientos" ToRole="productos" />
+        </EntityType>
+        <EntityType Name="producto_historicos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="producto_Id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="detalle" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="observacion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="codigo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="precio_unitario" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="bitacora_fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="bitacora_usuario" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tipo_unidad" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="detalle" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="observacion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="codigo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="precio_unitario" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="bitacora_fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="bitacora_usuario" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tipo_unidad" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="configuracion_productos" Relationship="Self.FK_productoconfiguracion_producto" FromRole="productos" ToRole="configuracion_productos" />
+          <NavigationProperty Name="movimientos" Relationship="Self.FK_productomovimiento" FromRole="productos" ToRole="movimientos" />
+          <NavigationProperty Name="saldo_productos" Relationship="Self.FK_productosaldo_producto" FromRole="productos" ToRole="saldo_productos" />
+        </EntityType>
+        <EntityType Name="saldo_productos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad" Type="Int64" Nullable="false" />
+          <Property Name="producto_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="producto" Relationship="Self.FK_productosaldo_producto" FromRole="saldo_productos" ToRole="productos" />
+        </EntityType>
+        <Association Name="FK_productoconfiguracion_producto">
+          <End Role="productos" Type="Self.producto" Multiplicity="1" />
+          <End Role="configuracion_productos" Type="Self.configuracion_productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="configuracion_productos">
+              <PropertyRef Name="producto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productomovimiento">
+          <End Role="productos" Type="Self.producto" Multiplicity="1" />
+          <End Role="movimientos" Type="Self.movimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="movimientos">
+              <PropertyRef Name="producto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productosaldo_producto">
+          <End Role="productos" Type="Self.producto" Multiplicity="1" />
+          <End Role="saldo_productos" Type="Self.saldo_productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="saldo_productos">
+              <PropertyRef Name="producto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="nautilusEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="configuracion_productos" EntityType="Self.configuracion_productos" />
+          <EntitySet Name="empresas" EntityType="Self.empresa" />
+          <EntitySet Name="movimientos" EntityType="Self.movimiento" />
+          <EntitySet Name="producto_historicos" EntityType="Self.producto_historicos" />
+          <EntitySet Name="productos" EntityType="Self.producto" />
+          <EntitySet Name="saldo_productos" EntityType="Self.saldo_productos" />
+          <AssociationSet Name="FK_productoconfiguracion_producto" Association="Self.FK_productoconfiguracion_producto">
+            <End Role="productos" EntitySet="productos" />
+            <End Role="configuracion_productos" EntitySet="configuracion_productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productomovimiento" Association="Self.FK_productomovimiento">
+            <End Role="productos" EntitySet="productos" />
+            <End Role="movimientos" EntitySet="movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productosaldo_producto" Association="Self.FK_productosaldo_producto">
+            <End Role="productos" EntitySet="productos" />
+            <End Role="saldo_productos" EntitySet="saldo_productos" />
+          </AssociationSet>
+          <EntitySet Name="usuarios" EntityType="nautilusModel.usuario" />
+          <AssociationSet Name="FK_empresausuario" Association="nautilusModel.FK_empresausuario">
+            <End Role="empresa" EntitySet="empresas" />
+            <End Role="usuario" EntitySet="usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="telefono" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="contrasenia" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_desde" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_hasta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="es_activo" Type="Boolean" Nullable="false" />
+          <Property Name="empresa_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="empresa" Relationship="nautilusModel.FK_empresausuario" FromRole="usuario" ToRole="empresa" />
+        </EntityType>
+        <Association Name="FK_empresausuario">
+          <End Type="nautilusModel.empresa" Role="empresa" Multiplicity="1" />
+          <End Type="nautilusModel.usuario" Role="usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="empresa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="nautilusModelStoreContainer" CdmEntityContainer="nautilusEntities">
+          <EntitySetMapping Name="configuracion_productos">
+            <EntityTypeMapping TypeName="nautilusModel.configuracion_productos">
+              <MappingFragment StoreEntitySet="configuracion_productos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="precio_venta" ColumnName="precio_venta" />
+                <ScalarProperty Name="bitacora_fecha" ColumnName="bitacora_fecha" />
+                <ScalarProperty Name="bitacora_usuario" ColumnName="bitacora_usuario" />
+                <ScalarProperty Name="producto_Id" ColumnName="producto_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empresas">
+            <EntityTypeMapping TypeName="nautilusModel.empresa">
+              <MappingFragment StoreEntitySet="empresas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="nit" ColumnName="nit" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+                <ScalarProperty Name="nombre_ceo" ColumnName="nombre_ceo" />
+                <ScalarProperty Name="num_doc_ceo" ColumnName="num_doc_ceo" />
+                <ScalarProperty Name="skype" ColumnName="skype" />
+                <ScalarProperty Name="email_ceo" ColumnName="email_ceo" />
+                <ScalarProperty Name="site" ColumnName="site" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="movimientos">
+            <EntityTypeMapping TypeName="nautilusModel.movimiento">
+              <MappingFragment StoreEntitySet="movimientos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="tipo_movimiento" ColumnName="tipo_movimiento" />
+                <ScalarProperty Name="bitacora_fecha" ColumnName="bitacora_fecha" />
+                <ScalarProperty Name="bitacora_usuario" ColumnName="bitacora_usuario" />
+                <ScalarProperty Name="producto_Id" ColumnName="producto_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="producto_historicos">
+            <EntityTypeMapping TypeName="nautilusModel.producto_historicos">
+              <MappingFragment StoreEntitySet="producto_historicos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="producto_Id" ColumnName="producto_Id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+                <ScalarProperty Name="bitacora_fecha" ColumnName="bitacora_fecha" />
+                <ScalarProperty Name="bitacora_usuario" ColumnName="bitacora_usuario" />
+                <ScalarProperty Name="tipo_unidad" ColumnName="tipo_unidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productos">
+            <EntityTypeMapping TypeName="nautilusModel.producto">
+              <MappingFragment StoreEntitySet="productos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+                <ScalarProperty Name="bitacora_fecha" ColumnName="bitacora_fecha" />
+                <ScalarProperty Name="bitacora_usuario" ColumnName="bitacora_usuario" />
+                <ScalarProperty Name="tipo_unidad" ColumnName="tipo_unidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="saldo_productos">
+            <EntityTypeMapping TypeName="nautilusModel.saldo_productos">
+              <MappingFragment StoreEntitySet="saldo_productos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="producto_Id" ColumnName="producto_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="nautilusModel.usuario">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="empresa_Id" ColumnName="empresa_Id" />
+                <ScalarProperty Name="es_activo" ColumnName="es_activo" />
+                <ScalarProperty Name="fecha_hasta" ColumnName="fecha_hasta" />
+                <ScalarProperty Name="fecha_desde" ColumnName="fecha_desde" />
+                <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

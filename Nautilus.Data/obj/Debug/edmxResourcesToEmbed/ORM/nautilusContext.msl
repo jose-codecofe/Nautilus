@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="nautilusModelStoreContainer" CdmEntityContainer="nautilusEntities">
+    <EntitySetMapping Name="configuracion_productos">
+      <EntityTypeMapping TypeName="nautilusModel.configuracion_productos">
+        <MappingFragment StoreEntitySet="configuracion_productos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="precio_venta" ColumnName="precio_venta" />
+          <ScalarProperty Name="bitacora_fecha" ColumnName="bitacora_fecha" />
+          <ScalarProperty Name="bitacora_usuario" ColumnName="bitacora_usuario" />
+          <ScalarProperty Name="producto_Id" ColumnName="producto_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empresas">
+      <EntityTypeMapping TypeName="nautilusModel.empresa">
+        <MappingFragment StoreEntitySet="empresas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="nit" ColumnName="nit" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="nombre_ceo" ColumnName="nombre_ceo" />
+          <ScalarProperty Name="num_doc_ceo" ColumnName="num_doc_ceo" />
+          <ScalarProperty Name="skype" ColumnName="skype" />
+          <ScalarProperty Name="email_ceo" ColumnName="email_ceo" />
+          <ScalarProperty Name="site" ColumnName="site" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="movimientos">
+      <EntityTypeMapping TypeName="nautilusModel.movimiento">
+        <MappingFragment StoreEntitySet="movimientos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="tipo_movimiento" ColumnName="tipo_movimiento" />
+          <ScalarProperty Name="bitacora_fecha" ColumnName="bitacora_fecha" />
+          <ScalarProperty Name="bitacora_usuario" ColumnName="bitacora_usuario" />
+          <ScalarProperty Name="producto_Id" ColumnName="producto_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="producto_historicos">
+      <EntityTypeMapping TypeName="nautilusModel.producto_historicos">
+        <MappingFragment StoreEntitySet="producto_historicos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="producto_Id" ColumnName="producto_Id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="detalle" ColumnName="detalle" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+          <ScalarProperty Name="bitacora_fecha" ColumnName="bitacora_fecha" />
+          <ScalarProperty Name="bitacora_usuario" ColumnName="bitacora_usuario" />
+          <ScalarProperty Name="tipo_unidad" ColumnName="tipo_unidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productos">
+      <EntityTypeMapping TypeName="nautilusModel.producto">
+        <MappingFragment StoreEntitySet="productos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="detalle" ColumnName="detalle" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+          <ScalarProperty Name="bitacora_fecha" ColumnName="bitacora_fecha" />
+          <ScalarProperty Name="bitacora_usuario" ColumnName="bitacora_usuario" />
+          <ScalarProperty Name="tipo_unidad" ColumnName="tipo_unidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="saldo_productos">
+      <EntityTypeMapping TypeName="nautilusModel.saldo_productos">
+        <MappingFragment StoreEntitySet="saldo_productos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="producto_Id" ColumnName="producto_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="nautilusModel.usuario">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="empresa_Id" ColumnName="empresa_Id" />
+          <ScalarProperty Name="es_activo" ColumnName="es_activo" />
+          <ScalarProperty Name="fecha_hasta" ColumnName="fecha_hasta" />
+          <ScalarProperty Name="fecha_desde" ColumnName="fecha_desde" />
+          <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

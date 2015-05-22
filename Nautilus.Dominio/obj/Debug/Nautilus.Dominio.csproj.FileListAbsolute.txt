@@ -1,0 +1,9 @@
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Dominio\bin\Debug\Nautilus.Dominio.dll
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Dominio\bin\Debug\Nautilus.Dominio.pdb
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Dominio\bin\Debug\EntityFramework.dll
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Dominio\bin\Debug\Nautilus.Data.dll
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Dominio\bin\Debug\Nautilus.Data.pdb
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Dominio\bin\Debug\EntityFramework.xml
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Dominio\obj\Debug\Nautilus.Dominio.csprojResolveAssemblyReference.cache
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Dominio\obj\Debug\Nautilus.Dominio.dll
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Dominio\obj\Debug\Nautilus.Dominio.pdb

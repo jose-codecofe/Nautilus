@@ -1,0 +1,9 @@
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Data\bin\Debug\Nautilus.Data.dll.config
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Data\bin\Debug\Nautilus.Data.dll
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Data\bin\Debug\Nautilus.Data.pdb
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Data\bin\Debug\EntityFramework.dll
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Data\bin\Debug\EntityFramework.xml
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Data\obj\Debug\Nautilus.Data.dll
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Data\obj\Debug\Nautilus.Data.pdb

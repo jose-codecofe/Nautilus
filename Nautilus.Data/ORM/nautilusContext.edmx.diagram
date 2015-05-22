@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2b6c143e4e824f65a9091fbd63f4b591" Name="Diagram1">
+        <EntityTypeShape EntityType="nautilusModel.configuracion_productos" Width="2.25" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nautilusModel.empresa" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="nautilusModel.movimiento" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nautilusModel.producto_historicos" Width="2.125" PointX="5.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nautilusModel.producto" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nautilusModel.saldo_productos" Width="2" PointX="3" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="nautilusModel.FK_productoconfiguracion_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="nautilusModel.FK_productomovimiento" ManuallyRouted="false" />
+        <AssociationConnector Association="nautilusModel.FK_productosaldo_producto" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="nautilusModel.usuario" Width="1.5" PointX="8" PointY="1.25" />
+        <AssociationConnector Association="nautilusModel.FK_empresausuario" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

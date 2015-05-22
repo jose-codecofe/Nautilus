@@ -1,0 +1,11 @@
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Servicio\bin\Debug\Nautilus.Servicio.dll
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Servicio\bin\Debug\Nautilus.Servicio.pdb
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Servicio\bin\Debug\Nautilus.Dominio.dll
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Servicio\bin\Debug\Nautilus.Data.dll
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Servicio\bin\Debug\EntityFramework.dll
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Servicio\bin\Debug\Nautilus.Dominio.pdb
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Servicio\bin\Debug\Nautilus.Data.pdb
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Servicio\bin\Debug\EntityFramework.xml
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Servicio\obj\Debug\Nautilus.Servicio.csprojResolveAssemblyReference.cache
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Servicio\obj\Debug\Nautilus.Servicio.dll
+C:\Users\Satellite\documents\visual studio 2013\Projects\Nautilus\Nautilus.Servicio\obj\Debug\Nautilus.Servicio.pdb

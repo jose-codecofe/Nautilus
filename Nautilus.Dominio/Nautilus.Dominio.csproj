@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62C2BCE1-15A0-4304-9A97-967AD5359E7B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nautilus.Dominio</RootNamespace>
+    <AssemblyName>Nautilus.Dominio</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Complemento\Constante.cs" />
+    <Compile Include="Complemento\Contexto.cs" />
+    <Compile Include="Complemento\Enumerador\eTipoMovimiento.cs" />
+    <Compile Include="Complemento\Mapeador.cs" />
+    <Compile Include="Dto\Anexo\GeneralDto.cs" />
+    <Compile Include="Dto\ConfiguracionProductoDto.cs" />
+    <Compile Include="Dto\EmpresaDto.cs" />
+    <Compile Include="Dto\Anexo\InformacionDto.cs" />
+    <Compile Include="Dto\MovimientoDto.cs" />
+    <Compile Include="Dto\ProductoDto.cs" />
+    <Compile Include="Dto\SaldoProductoDto.cs" />
+    <Compile Include="Dto\UsuarioDto.cs" />
+    <Compile Include="Gestor\GestorConfiguracionProducto.cs" />
+    <Compile Include="Gestor\GestorEmpresa.cs" />
+    <Compile Include="Gestor\Anexo\GestorBase.cs" />
+    <Compile Include="Gestor\GestorMovimiento.cs" />
+    <Compile Include="Gestor\GestorProducto.cs" />
+    <Compile Include="Gestor\GestorSaldoProducto.cs" />
+    <Compile Include="Gestor\GestorUsuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nautilus.Data\Nautilus.Data.csproj">
+      <Project>{893eab63-a8f7-4835-9869-0cec651c7772}</Project>
+      <Name>Nautilus.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
