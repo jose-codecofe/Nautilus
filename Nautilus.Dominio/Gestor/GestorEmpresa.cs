@@ -1,12 +1,12 @@
-﻿//------------------------------------------------------------------------------
-// <codecofe>
-//     Este código se elaboro por CodeCofe.
+//------------------------------------------------------------------------------
+// <codecofe>  
+//     Este c�digo se elaboro por CodeCofe.
 //
-//     Para recibir informaciòn usted puede contactarnos desde los siguientes medios:
+//     Para recibir informaci�n usted puede contactarnos desde los siguientes medios:
 //     wwww.codecofe.com  contact@codecofe.com  jlrodriguez.codecofe@gmail.com  +591 72483556.
 // </codecofe>
 //------------------------------------------------------------------------------
-using Nautilus.Data.ORM;
+using Nautilus.Data.ORM;   
 using Nautilus.Dominio.Complemento;
 using Nautilus.Dominio.Dto;
 using Nautilus.Dominio.Dto.Anexo;
@@ -43,6 +43,7 @@ namespace Nautilus.Dominio.Gestor
 
         public override InformacionDto Actualizar(EmpresaDto pObjeto)
         {
+		// Valida si pObjeto es igual a nulo.
             if (pObjeto == null)
                 return new InformacionDto { EsCorrecto = false, Mensaje = Constante.OBJETO_NULO };
 
